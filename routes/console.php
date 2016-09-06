@@ -22,7 +22,7 @@ Artisan::command('vtube:install', function () {
 
 
     $nodeVer = trim(exec('node --version'));
-    $this->comment("--{$nodeVer}--");
+   
     $ver = substr($nodeVer, 1, stripos($nodeVer, '.')-1);
 
     if ($ver < 4) {

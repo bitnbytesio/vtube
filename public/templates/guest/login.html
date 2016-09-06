@@ -1,0 +1,31 @@
+<div class="vertical-center-row">
+  
+  <div class="login-container">
+
+    <form class="login-form">
+      <h1>Login to your account</h1>
+
+      <div  uib-alert  close="dismiss()"  ng-hide="form.response.alert.class == undefined" class="alert alert-{{form.response.alert.class}}">{{form.response.alert.text}}</div>
+
+      <label for="inputEmail" class="sr-only">Username or Email</label>
+      <input  ng-model="form.username" type="text" id="inputEmail" class="form-control" placeholder="Username or Email" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input  ng-model="form.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me" ng-model="form.remember"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit"  ng-click="signin.handle()">Sign in</button>
+    </form>
+
+    <div class="login-help">
+        <a href="#/forgot-password">Forgot Password</a>
+    </div>
+
+  </div> <!-- login container -->
+
+  
+  </div>
+
+</div> <!-- /container -->

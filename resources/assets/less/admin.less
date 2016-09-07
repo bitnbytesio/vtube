@@ -1,5 +1,10 @@
 // Core variables and mixins
 @import "bootstrap/variables.less";
+
+
+@import "theme.less";
+
+
 @import "bootstrap/mixins.less";
 
 // Reset and dependencies
@@ -44,11 +49,13 @@
 @import "bootstrap/responsive-utilities.less";
 
 
+@import "theme.less";
+
  html, body, .container-table {
     width: 100%;
     height: 100%;
-    background: #e9e9e9;
-    font-family: 'Roboto', sans-serif;
+   /* background: #e9e9e9;
+    font-family: 'Roboto', sans-serif;*/
 }
 a{
   cursor: pointer;
@@ -68,7 +75,7 @@ a{
     bottom: 0;
     z-index: -1;
     width: inherit;
-    background-color: #f0f3f4;
+    background-color: @app-bg;
     border: inherit;
     display: block;
 
@@ -98,9 +105,9 @@ a{
 }
 
 .login-container {
-  background-color: #f7f7f7;
+  background-color: @login-container-bg;
   border-radius: 1px;
-  border-top: 4px solid #33b5e5;
+  border-top: 4px solid  @brand-primary;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
@@ -120,44 +127,44 @@ a{
 
 }
 
-.login-container input[type="text"], input[type="email"], input[type="password"] {
+.login-container input[type="text"], .login-container input[type="email"], .login-container input[type="password"] {
  
   margin-bottom: 10px;
   border-radius:1px; 
   padding: 10px 15px;
-  color:#333333;
+  color:@gray-dark;
   font-size: 13px;
 }
 
 /* buttons style */
 
 .btn {
-	border-radius: 2px;
+	/*border-radius: 2px;*/
 	padding: 10px 15px;
 	transition: all 0.3s ease 0s;
 	border-color:transparent !important;
 }
 
-.btn-primary {
+/*.btn-primary {
 	background: #33b5e5;
 }
 
 .btn-primary:hover {
 	background: #178ab4;
 }
-
+*/
 .bg-black {
-  background: #333333;
+  background: @gray-dark;
 }
 
 .login-help {
   margin-top:10px;
-  background: #f2f2f2;
+  background: @login-help-bg;
   padding: 15px 40px;
 }
 
 .login-help a {
-  color: #333333;
+  color: @gray-dark;
   display: inline-block;
   font-weight: 400;
   opacity: 1;
@@ -189,7 +196,7 @@ a{
 	left: 0;
 	width: 100%;
   width: 100%;
-  background: #e5e5e5;
+  background:  @loading-bg;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset;
   height: 3px;
 }
@@ -200,7 +207,7 @@ a{
   -o-transition: width 350ms;
   transition: width 350ms;
 	float: left;
-	background: #178ab4;
+	background: @loading-bar-bg;
   position: fixed;
   top: 0;
   left: 0;
@@ -217,10 +224,10 @@ a{
   top: 0;
   height: 2px;
   opacity: .45;
-  -moz-box-shadow: #178ab4 1px 0 6px 1px;
-  -ms-box-shadow: #178ab4 1px 0 6px 1px;
-  -webkit-box-shadow: #178ab4 1px 0 6px 1px;
-  box-shadow: #178ab4 1px 0 6px 1px;
+  -moz-box-shadow: @loading-bar-bg 1px 0 6px 1px;
+  -ms-box-shadow: @loading-bar-bg 1px 0 6px 1px;
+  -webkit-box-shadow: @loading-bar-bg 1px 0 6px 1px;
+  box-shadow: @loading-bar-bg 1px 0 6px 1px;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
@@ -240,11 +247,11 @@ a{
 }
 
 .text-sm {
-    font-size: 13px;
+    font-size: @font-size-base;
 }
 
 .text-xs {
-    font-size: 12px;
+    font-size: @font-size-small;
 }
 
 .thumb {
@@ -357,9 +364,9 @@ a{
 }
 
 .nav > li > a:focus, .nav > li > a:focus span, .nav > li > a:hover, .nav > li > a:hover span, .nav > li.active a, .nav > li.active a span, .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
-  background-color: #33b5e5;
+  background-color:  @brand-primary;
   text-decoration: none;
-  color:#333333;
+  color:@gray-dark;
 }
 
 
@@ -394,7 +401,7 @@ a{
 }
 
 .form-control:focus {
-  border-color: #33b5e5;
+  border-color:  @brand-primary;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 2px rgba(23, 138, 180, 0.6);
   outline: 0 none;
 }
@@ -411,8 +418,6 @@ a{
 }
 .paging .pagination {
   margin: 0;
-  display: inline-block;
- 
 }
 
 /* table */
@@ -423,10 +428,7 @@ a{
 /* alerts */
 
 .alert {
-  border-radius: 1px;
-  font-size: 13px;
-  margin-bottom: 20px;
-  padding: 5px 10px;
+  padding:@alert-padding-custom;
 }
 
 .alert-dismissable .close, .alert-dismissible .close {

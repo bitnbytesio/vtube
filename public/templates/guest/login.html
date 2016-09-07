@@ -5,7 +5,7 @@
     <form class="login-form">
       <h1>Login to your account</h1>
 
-      <div  uib-alert  close="dismiss()"  ng-hide="form.response.alert.class == undefined" class="alert alert-{{form.response.alert.class}}">{{form.response.alert.text}}</div>
+      <div ng-hide="form.response.alert.class == undefined" class="alert alert-{{form.response.alert.class}}"><button type="button" class="close" ng-click="dismiss()"><span aria-hidden="true">&times;</span></button>{{form.response.alert.text}}</div>
 
       <label for="inputEmail" class="sr-only">Username or Email</label>
       <input  ng-model="form.username" type="text" id="inputEmail" class="form-control" placeholder="Username or Email" required autofocus>

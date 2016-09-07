@@ -39,13 +39,25 @@
 
              
 
-
              <div class="form-group"  ng-class="{'has-error': form.response.hasError('password')}">
 
                <label class="col-sm-12 required">Password</label>
               <div class="col-sm-12">
                 <input ng-model="form.password" type="text" class="form-control">     
                 <div class="help-block">{{form.response.error('password')}}</div>
+
+                </div>
+            </div>
+
+
+            <div class="form-group"  ng-class="{'has-error': form.response.hasError('roles')}">
+
+               <label class="col-sm-12 required">Roles</label>
+              <div class="col-sm-12">
+                <select ng-model="form.roles" multiple="multiple" class="form-control">
+                  <option ng-repeat="role in roles" value="{{role.id}}">{{role.name}}</option>
+                </select>     
+                <div class="help-block">{{form.response.error('roles')}}</div>
 
                 </div>
             </div>

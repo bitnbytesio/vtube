@@ -106,7 +106,7 @@
                         }
 
                         ngFormInstance.internalScope[config.path].response.hasError = function (key) {
-                            return typeof o.errors == 'udefined' || o.errors[key] != 'undefined';
+                            return (typeof o.errors == 'object' && typeof o.errors[key] != 'undefined');
                         };
 
                         ngFormInstance.internalScope[config.path].response.error = function (key) {

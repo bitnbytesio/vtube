@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Models\User;
+use App\Models\Role;
 
 class GuestController extends Controller {
 
@@ -46,7 +47,8 @@ class GuestController extends Controller {
 			'loggedIn' => Auth::check(),
 			'admin_url' =>  config('admin.path', 'admin'),
 			'user' => $user,
-			'roles' => is_null($user) ? [] : $user->userRoles()
+			'roles' => is_null($user) ? [] : $user->userRoles(),
+			'system_roles' => Role::getAll(),
 		];
 	}
 

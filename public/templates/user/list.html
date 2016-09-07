@@ -1,0 +1,55 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading font-bold">Users</div>
+
+  <div class="panel-body">
+
+    <div class="row">
+
+
+      <div class="col-sm-12">
+
+        <div class="table-filters"><label>Search: <input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_0"></label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="table-responsive">
+
+         <table class="table table-striped table-hover">
+
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Display Name</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Created At</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr ng-repeat="user in users" ng-odd-class="odd" ng-even-class="even">
+              <td>{{user.id}}</td>
+              <td>{{user.display_name}}</td>
+              <td>{{user.username}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.created_at}}</td>
+            </tr>
+
+          </tbody>
+
+         </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

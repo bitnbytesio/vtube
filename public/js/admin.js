@@ -515,7 +515,7 @@ return e}}}else return d(a)}}]}])})(window,window.angular);
                         }
 
                         ngFormInstance.internalScope[config.path].response.hasError = function (key) {
-                            return typeof o.errors == 'udefined' || o.errors[key] != 'undefined';
+                            return (typeof o.errors == 'object' && typeof o.errors[key] != 'undefined');
                         };
 
                         ngFormInstance.internalScope[config.path].response.error = function (key) {
@@ -660,6 +660,7 @@ vtube.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
         templateUrl: "templates/common/layout.html"
     }).state('user.list', {
       url: "/users",
+      controller:'listUsersCtrl',
       templateUrl: "templates/user/list.html",
       acl:['super_admin']
     }).state('user.add', {
@@ -743,19 +744,26 @@ vtube.controller('forgotPasswordCtrl', function () {
 // users
 
 
-vtube.controller('listUsersCtrl', function () {
+vtube.controller('listUsersCtrl', ['$scope', '$http', function ($scope, $http) {
 
+  $scope.users = [];
 
-});
+  $http({url:'admin/users'}).success(function (o) {
+    $scope.users = o.data;
+  });
+
+}]);
 
 vtube.controller('getUserCtrl', function () {
 
 
 });
 
-vtube.controller('addUserCtrl', ['$scope', '$ngForm', '$location', function ($scope, $ngForm, $location) {
+vtube.controller('addUserCtrl', ['$scope', '$ngForm', '$location', '$rootScope', function ($scope, $ngForm, $location, $rootScope) {
 
     $scope.form = {};
+
+    $scope.roles = $rootScope.config.system_roles;
 
     var config = {
                     url:'admin/user/save',
@@ -768,7 +776,7 @@ vtube.controller('addUserCtrl', ['$scope', '$ngForm', '$location', function ($sc
                     success: function (o) {
                         
                        if (o.success == true) {
-                          $location.path('admin/users');
+                          $location.path('users');
                       }
 
                     }

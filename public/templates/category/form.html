@@ -1,0 +1,51 @@
+
+<div class="panel panel-default">
+
+        <div class="panel-heading font-bold">Add New Catgeory</div>
+
+        <div class="panel-body">
+        <form class="form-horizontal">
+            
+            <div class="form-group" ng-class="{'has-error': form.response.hasError('title')}">
+
+               <label class="col-sm-12 required">Title</label>
+              <div class="col-sm-12">
+                <input ng-model="form.title" type="text" class="form-control">     
+                <div class="help-block">{{form.response.error('title')}}</div>
+
+                </div>
+            </div>
+
+            
+            <div class="form-group" ng-class="{'has-error': form.response.hasError('slug')}">
+
+               <label class="col-sm-12 required">Slug</label>
+              <div class="col-sm-12">
+                <input ng-model="form.slug" type="text" class="form-control">     
+                <div class="help-block">{{form.response.error('slug')}}</div>
+
+                </div>
+            </div>
+     
+
+
+             <div class="form-group"  ng-class="{'has-error': form.response.hasError('image')}">
+
+               <label class="col-sm-12 required">Image</label>
+              <div class="col-sm-12">
+                <input ng-file="form.image" type="file" class="form-control">     
+                <div class="help-block">{{form.response.error('image')}}</div>
+
+                </div>
+            </div>
+              
+
+      
+            <button type="submit" class="btn btn-sm btn-primary" ng-click="add.handle()">Save</button>
+            <button type="button" class="btn btn-sm btn-primary">Save and Add New</button>
+
+          </form>
+        </div>
+
+
+      </div>

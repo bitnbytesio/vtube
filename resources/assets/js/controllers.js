@@ -39,6 +39,8 @@ vtube.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
       acl:['super_admin']
     });
 
+
+
     // video manager
 
      $stateProvider.state('video', {
@@ -52,6 +54,19 @@ vtube.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
       templateUrl: "templates/video/form.html"
     });
 
+
+    // category
+
+     $stateProvider.state('category', {
+        templateUrl: "templates/common/layout.html"
+    }).state('category.list', {
+      url: "/categories",
+      templateUrl: "templates/category/list.html"
+    }).state('category.add', {
+      url: "/category/add",
+      controller: 'addCategoryCtrl',
+      templateUrl: "templates/category/form.html"
+    });
 
 
 
@@ -178,4 +193,11 @@ vtube.controller('addVideoCtrl', ['$scope', function ($scope) {
   $scope.form = {};
   $scope.video = {};
 
+}]);
+
+
+// category
+
+vtube.controller('addCategoryCtrl', ['$scope', function ($scope) {
+  $scope.form = {};
 }]);

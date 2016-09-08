@@ -1,51 +1,52 @@
 
 <div class="panel panel-default">
 
-        <div class="panel-heading font-bold">Add New User</div>
+        <div class="panel-heading font-bold">Add New Video</div>
 
         <div class="panel-body">
         <form class="form-horizontal">
             
-            <div class="form-group" ng-class="{'has-error': form.response.hasError('display_name')}">
+            <div class="form-group" ng-class="{'has-error': form.response.hasError('title')}">
 
-               <label class="col-sm-12 required">Display Name {{form.display_name}}</label>
+               <label class="col-sm-12 required">Title</label>
               <div class="col-sm-12">
-                <input ng-model="form.display_name" type="text" class="form-control">     
-                <div class="help-block">{{form.response.error('display_name')}}</div>
+                <input ng-model="form.title" type="text" class="form-control">     
+                <div class="help-block">{{form.response.error('title')}}</div>
 
                 </div>
             </div>
 
-            <div class="form-group" ng-class="{'has-error': form.response.hasError('username')}">
+            <div class="form-group" ng-class="{'has-error': form.response.hasError('category')}">
 
-               <label class="col-sm-12 required">Username</label>
+               <label class="col-sm-12 required">Category</label>
               <div class="col-sm-12">
-                <input ng-model="form.username" type="text" class="form-control">     
-                <div class="help-block">{{form.response.error('username')}}</div>
+                <select ng-model="form.category" class="form-control" multiple="">
+                </select>     
+                <div class="help-block">{{form.response.error('category')}}</div>
 
                 </div>
             </div>
 
 
-              <div class="form-group" ng-class="{'has-error': form.response.hasError('email')}">
+            <div class="form-group" ng-class="{'has-error': form.response.hasError('tags')}">
 
-               <label class="col-sm-12 required">Email</label>
-            <div class="col-sm-12">
-              <input ng-model="form.email" type="email" class="form-control">     
-              <div class="help-block">{{form.response.error('email')}}</div>
-
-              </div>
-              </div>
-
-             
-
-
-             <div class="form-group"  ng-class="{'has-error': form.response.hasError('password')}">
-
-               <label class="col-sm-12 required">Password</label>
+               <label class="col-sm-12 required">Tags</label>
               <div class="col-sm-12">
-                <input ng-model="form.password" type="text" class="form-control">     
-                <div class="help-block">{{form.response.error('password')}}</div>
+                <input ng-model="form.tags" type="text" class="form-control">     
+                <div class="help-block">{{form.response.error('tags')}}</div>
+
+                </div>
+            </div>
+
+                      
+
+
+             <div class="form-group"  ng-class="{'has-error': form.response.hasError('file')}">
+
+               <label class="col-sm-12 required">File</label>
+              <div class="col-sm-12">
+                <input ng-file="form.file" type="file" class="form-control">     
+                <div class="help-block">{{form.response.error('file')}}</div>
 
                 </div>
             </div>
